@@ -25,16 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
       console.log(result4);
 
-      var result5 = [];
-      for (var i = 0; i < result4.length; i++) {
-        for (var j = 0; j < result4[i].length; j++) {
-          k = result4[i][j][2];
-          if (!result5[k]) {
-            result5[k] = [];
-          }
-          result5[k].push(result4[i][j]);
-        }
-      }
+      var result5 = result4.reduce((a, e) => ([...a, ...e]), [])
+                           .filter(a => a.length > 1)
+                           .reduce(
+                             (obj, e) => ({
+                               ...obj,
+                               [e[2]]: obj[e[2]] ? [...obj[e[2]], e] : [e]
+                             })
+                             ,{});
       console.log(result5);
     }
   },false);
