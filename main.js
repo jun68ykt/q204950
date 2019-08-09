@@ -1,31 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-  var obj1 = document.getElementById("selfile");
+  const obj1 = document.getElementById("selfile");
 
   obj1.addEventListener("change",function(evt){
 
-    var file = evt.target.files;
-    var reader = new FileReader();
+    const file = evt.target.files;
+    const reader = new FileReader();
     reader.readAsText(file[0]);
 
     reader.onload = function(ev){
 
       //テキストエリアに表示
       document.test.txt.value = reader.result.toLowerCase();
-      var result2 = reader.result.toLowerCase().split("\n").filter(str => str);
+      const result2 = reader.result.toLowerCase().split("\n").filter(str => str);
 
-      var result3 = result2.map(
+      const result3 = result2.map(
         line => line.split(/\s+/).slice(0, 5)
       );
 
-      var result4 = result3.map(
+      const result4 = result3.map(
         ary => ary.map(
           (e, i) => (i <= 3 ? [ary[4], 10**(3-i), e] : [e])
       ));
 
       console.log(result4);
 
-      var result5 = result4.reduce((a, e) => ([...a, ...e]), [])
+      const result5 = result4.reduce((a, e) => ([...a, ...e]), [])
                            .filter(a => a.length > 1)
                            .reduce(
                              (obj, e) => ({
