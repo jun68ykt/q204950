@@ -18,11 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
         line => line.split(/\s+/).slice(0, 5)
       );
 
-      var result4 = result3.map(ary =>  ary.map(e => [e]));
-
-      result4 = result4.map(ary => ary.map(
-                  (a, i) => (i <= 3 ? [ary[4][0], 10**(3-i), a[0]] : a)
-                ));
+      var result4 = result3.map(
+        ary => ary.map(
+          (e, i) => (i <= 3 ? [ary[4], 10**(3-i), e] : [e])
+      ));
 
       console.log(result4);
 
