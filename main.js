@@ -14,18 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
       document.test.txt.value = reader.result.toLowerCase();
       var result2=reader.result.toLowerCase().split("\n").filter(str => str);
 
-      var result3=[];
-      for (var i = 0; i <result2.length; i++) {
-        result3.push(result2[i].split(/\s+/));
-      }
-
-      for (var i = 0; i<result3.length; i++) {
-        if(result3[i].length>=6){
-          while (result3[i].length>=6){
-            result3[i].pop();
-          }
-        }
-      }
+      var result3 = result2.map(
+        line => line.split(/\s+/).slice(0, 5)
+      );
 
       Array.prototype.divide = function(n){
         var ary = this;
