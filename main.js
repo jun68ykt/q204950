@@ -18,26 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         line => line.split(/\s+/).slice(0, 5)
       );
 
-      Array.prototype.divide = function(n){
-        var ary = this;
-        var idx = 0;
-        var results = [];
-        var length = ary.length;
-
-        while (idx + n < length){
-          var result = ary.slice(idx,idx+n)
-          results.push(result);
-          idx = idx + n
-        }
-        var rest = ary.slice(idx,length+1)
-        results.push(rest)
-        return results;
-      }
-
-      result4=[];
-      for (var i = 0; i<result3.length; i++) {
-        result4.push(result3[i].divide(1));
-      }
+      var result4 = result3.map(ary =>  ary.map(e => [e]));
 
       for (var i = 0; i<result4.length; i++) {
         if(result4[i][4][0].indexOf("x") >= 0){
