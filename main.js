@@ -40,9 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return [...map].sort((e1,e2) => e1[0].localeCompare(e2[0]));
       }
 
-      const result6 = Object.entries(result5).reduce(
-                        (obj, [k,v]) => ({...obj, [k]: summarize(v)})
-                      , {});
+      const result6 = _.mapValues(result5, summarize);
 
       console.log(result6);
     }
