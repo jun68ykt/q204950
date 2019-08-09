@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       //テキストエリアに表示
       document.test.txt.value = reader.result.toLowerCase();
-      var result2=reader.result.toLowerCase().split("\n");
+      var result2=reader.result.toLowerCase().split("\n").filter(str => str);
 
       var result3=[];
       for (var i = 0; i <result2.length; i++) {
