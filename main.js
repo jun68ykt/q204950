@@ -34,6 +34,17 @@ document.addEventListener('DOMContentLoaded', function() {
                              })
                              ,{});
       console.log(result5);
+
+      const summarize = (ary) => {
+        const map = ary.reduce((m, e) => m.set(e[0], (m.get(e[0]) || 0) + e[1]), new Map());
+        return [...map].sort((e1,e2) => e1[0].localeCompare(e2[0]));
+      }
+
+      const result6 = Object.entries(result5).reduce(
+                        (obj, [k,v]) => ({...obj, [k]: summarize(v)})
+                      , {});
+
+      console.log(result6);
     }
   },false);
 
